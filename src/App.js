@@ -1,25 +1,34 @@
 import ReactDOM from 'react-dom'
 import React,  { Component } from 'react';
+import './playground/playground'
 import './App.css';
 
 
-let appObject = {
+const appObject = {
   title: "My new title here.",
   subtitle: "Here is my subtitle. ",
     options: ['one', 'two']
 };
 
-let template = (
+const template = (
   <div>
     <h1>{appObject.title}</h1>
     {appObject.subtitle && <p>{appObject.subtitle}</p>}
     {appObject.options.length > 0 ? "here are your options" : "No options"}
   </div>
 );
-let appRoot = document.getElementById("root2");
+const appRoot = document.getElementById("root2");
 ReactDOM.render(template, appRoot);
 
-
+const multiplier = {
+    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    multiplyBy: 7,
+    multiplyNumbers(){
+        return this.numbers.map((number) => this.multiplyBy * number)
+    }
+};
+const result = multiplier.multiplyNumbers();
+console.log(result);
 
 // let template = (
 //     <div>

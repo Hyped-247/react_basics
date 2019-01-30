@@ -23,7 +23,6 @@ const removeFormSubmit = (e) => {
      app.options = [];
     renderReactApp();
 };
-const numbers = [55, 12, 33];
 const appRoot = document.getElementById('root2');
 const renderReactApp = () => {
 const template = (
@@ -32,9 +31,7 @@ const template = (
         <h3>{app.title}</h3>
         <h3>{app.subtitle}</h3>
        {
-           app.options.map((option) => {
-               return <p key={option}>Option: {option}</p>
-               })
+           app.options.map((option) => <p key={option}>Option: {option}</p>)
        }
        <form onSubmit={onFormSubmit}>
             <input type='text' name='option'/>

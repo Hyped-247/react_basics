@@ -3,54 +3,34 @@ import React,  { Component } from 'react';
 import './playground/playground'
 import './App.css';
 
-class Counter extends Component{
 
+class Visibility extends Component{
     constructor(props){
         super(props);
-        this.handleAddOne = this.handleAddOne.bind(this);
-        this.handleMinusOne = this.handleMinusOne.bind(this);
-        this.handleReset = this.handleReset.bind(this);
+        this.toggle = this.toggle.bind(this);
         this.state = {
-            count: 0
-        };
+            visible: true
+        }
     }
 
-    handleAddOne(event){
+    toggle(){
         this.setState((preState) => {
-                return {
-                    count: preState.count + 1
-                };
+            return {
+                visible: !preState.visible
             }
-        );
-    };
-
-    handleMinusOne(event){
-        this.setState((preState) => {
-            return {
-                count: preState.count - 1
-            };
         });
-    };
-
-    handleReset(event){
-           this.setState(() => {
-            return {
-                count: 0
-            };
-        });
-    };
+    }
 
     render() {
         return (
             <div>
-                <h1>Count: {this.state.count} </h1>
-                <button onClick={this.handleAddOne}>+1</button>
-                <button onClick={this.handleMinusOne}>-1</button>
-                <button onClick={this.handleReset}>reset</button>
+                { this.state.visible ? <button onClick={this.toggle}>Hide</button>
+                    : <button onClick={this.toggle}>Show</button>}
+                { this.state.visible ? <p>This is what I want to show</p> : <p>Nothing</p>}
             </div>
         );
     }
-
 }
 
-ReactDOM.render(<Counter/>, document.getElementById('root'));
+
+ReactDOM.render(<Visibility />, document.getElementById('root'));

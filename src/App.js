@@ -9,7 +9,7 @@ class IndecisionApp extends Component {
     super(props);
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
-    this.handleDeleteOption = this.handleDeleteOption(this);
+    this.handleDeleteOption = this.handleDeleteOption.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
       options: []

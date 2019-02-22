@@ -1,7 +1,5 @@
 const path = require('path');
 
-console.log();
-
 module.exports = {
     entry: '/Users/mohammad/PycharmProjects/react_basics/src/App.js',
     output: {
